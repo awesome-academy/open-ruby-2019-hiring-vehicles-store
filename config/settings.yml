@@ -3,3 +3,4 @@ user_email_length_max: 250
 user_pass_length_min: 6
 valid_email: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
 password_max_length: 20
+sold_out: 0

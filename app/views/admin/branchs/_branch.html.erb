@@ -1,0 +1,6 @@
+<tr>
+  <td><%= branch.name %></td>
+  <td><%= link_to t(".update"), "#", class: "btn btn-success" %></td>
+  <td><%= link_to t(".delete"), admin_branch_path(branch), data: { confirm: t(".sure?")},
+    method: :delete, remote: true, class: "btn btn-danger", id: "destroy-branch" %></td>
+</tr>

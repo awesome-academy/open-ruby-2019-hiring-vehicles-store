@@ -8,4 +8,6 @@ class Vehicle < ApplicationRecord
   has_many :comments
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :branch, prefix: :branch
+
+  scope :active_vehicles, ->{where.not quantity: Settings.sold_out}
 end

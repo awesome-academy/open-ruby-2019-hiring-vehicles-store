@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     resources :vehicles, only: :show
     resources :admin, only: :index
     resources :hirings, only: %i(new create index)
-  end
-  namespace :admin do
-    resources :vehicles, except: :show
+    resources :branchs, only: %i(index show)
+
+    namespace :admin do
+      resources :vehicles, except: :show
+      resources :branchs, except: :show
+    end
   end
 end

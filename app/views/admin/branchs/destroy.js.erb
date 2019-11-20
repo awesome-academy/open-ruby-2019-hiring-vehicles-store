@@ -1,0 +1,6 @@
+$('#destroy-branch').bind('ajax:success', function() {
+  $(this).closest('tr').fadeOut();
+});
+$('#destroy-branch').bind('ajax:fail', function() {
+  alert('Delete failed');
+});

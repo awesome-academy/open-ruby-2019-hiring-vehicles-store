@@ -37,7 +37,7 @@ en:
       log_in: "Sign up"
       home: "Home"
       product: "Product"
-      contact: "Contact"
+      branch: "Branchs"
       about: "About us"
     admin:
       application:
@@ -90,6 +90,8 @@ en:
       price: "Price"
       description: "Description"
       cant_find: "Cannot find"
+    vehicle:
+      details: "Details"
   admin:
     index:
       wel: "Welcome to admin page of Hiring Vehicle Store"
@@ -121,6 +123,10 @@ en:
         description: "Description"
         price: "Price"
         submit: "Submit"
+    branchs:
+      branch:
+        edit: "Edit"
+        delete: "Delete"
   hirings:
     new:
       cant_find: "Cannot find user"
@@ -132,3 +138,7 @@ en:
       how_long: How long do you want to hire?
       hours: "hours"
       total: "Total"
+  shared:
+    branch_form:
+      create: "Create"
+      name_here: "Name of branch"

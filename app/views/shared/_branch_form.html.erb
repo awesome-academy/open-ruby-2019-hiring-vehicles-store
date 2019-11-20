@@ -1,0 +1,8 @@
+<%= form_for @branch, url: {action: "create", :controller => "admin/branchs"} do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <div class="field">
+    <%= f.text_area :name, placeholder: t(".name_here") %>
+  </div>
+  <%= f.submit t(".create"), class: "btn btn-primary", id: "create-branch" %>
+<% end %>

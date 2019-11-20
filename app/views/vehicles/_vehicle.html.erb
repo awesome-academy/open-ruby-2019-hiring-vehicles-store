@@ -1,0 +1,7 @@
+<div class="card">
+  <%= image_tag "car1.png", id: "card_image"%>
+  <div class="card-body">
+    <h5 class="card-title"><%= vehicle.name %></h5>
+    <%= link_to t(".detail"), vehicle, class: "btn btn-primary" %>
+  </div>
+</div>
