@@ -14,7 +14,8 @@ class BillingMailer < ApplicationMailer
       hiring_id: hiring.id,
       vehicle_name: hiring.vehicle_name,
       total: hiring.time * hiring.vehicle_price,
-      branch_name: hiring.branch_name
+      branch_name: hiring.branch_name,
+      created_at: hiring.created_at.to_date
     }
   end
 end

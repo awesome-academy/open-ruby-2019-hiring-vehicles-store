@@ -1,0 +1,23 @@
+<div class="container emp-profile">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="profile-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+        <div class="file btn btn-lg btn-primary">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="profile-head">
+        <h4><%= @user.name %></h4>
+        <h6><%= @user.email %></h6>
+        <p class="proile-rating">RANKINGS : <span>8</span></p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= link_to t(".edit"), edit_user_path(@user.id), class: "profile-edit-btn", remote: true %>
+    </div>
+  </div>
+</div>
+<div id = "edit-modal">
+</div>
