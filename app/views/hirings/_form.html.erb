@@ -5,7 +5,7 @@
   </div>
   <%= f.label t(".how_long") %>
   <div class="hour-field">
-    <%= f.number_field :time, class: "form-control", id: "hiring-time" %>
+    <%= f.number_field :time, class: "form-control", id: "hiring-time", min: 0 %>
     <%= t ".hour" %>
   </div>
   <div id="subtotal">

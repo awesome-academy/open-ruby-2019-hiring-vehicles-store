@@ -12,6 +12,7 @@
       </ul>
     </li>
     <li><%= link_to t(".banner"), "#" %></li>
-    <li><%= link_to t(".chart"), "#" %></li>
+    <li><%= link_to t(".profile"), admin_user_path(current_user.id) %></li>
+    <li><%= link_to t(".log_out"), logout_path, method: :delete, id: "logout-btn" %></li>
   </ul>
 </div>

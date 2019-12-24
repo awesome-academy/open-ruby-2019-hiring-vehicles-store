@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
     get "/signup", to: "users#new"
-    resources :users, only: :create
+    post "/update", to: "admin/users#update"
+    resources :users, except: %i(index destroy)
     resources :admin, only: :index
     resources :hirings, only: %i(new create index)
     resources :branchs, only: %i(index show)
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
       resources :vehicles, except: :show
       resources :branchs, except: :show
       resources :hirings
+      resources :users, only: %i(edit show)
     end
   end
 end

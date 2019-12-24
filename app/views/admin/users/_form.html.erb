@@ -1,4 +1,4 @@
-<%= form_for @user, remote: true do |f| %>
+<%= form_for update_path, remote: true do |f| %>
   <%= render "shared/error_messages", object: f.object %>
 
   <%= f.label t(".name") %>
@@ -13,5 +13,5 @@
   <%= f.label t(".pass_con") %>
   <%= f.password_field :password_confirmation, class: "form-control" %>
 
-  <%= f.submit t(".btn"), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

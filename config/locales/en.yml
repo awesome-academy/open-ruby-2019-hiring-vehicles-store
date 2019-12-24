@@ -78,6 +78,12 @@ en:
     create:
       wel: "Welcome to the Sample App!"
       signup_err: "Sign up error"
+    edit:
+      update: "Update"
+      check: "Update Profile"
+    update:
+      success: "Success"
+      fails: "Fails"
   sessions:
     form:
       log_in: "Log in"
