@@ -1,13 +1,19 @@
 <section class="categories-section spad">
   <div class="container">
-    <div class="section-title">
-      <h2><%= t ".list" %><%= @branch.name %></h2>
-    </div>
-    <div class="row", id="vehicles">
-      <%= render @vehicles %>
-    </div>
-    <div id="pagination">
-      <%= paginate @vehicles, remote: true, theme: "twitter-bootstrap-3" %>
+    <div id="vehicles">
+      <div class="section-title">
+        <h2><%= t ".list" %><%= @branch.name %></h2>
+      </div>
+      <%= form_tag @branch, method: :get, remote: true do %>
+        <%= select_tag :per_page, options_for_select(Settings.quantity_value),
+          id: "select_tag", include_blank: true %>
+      <% end %>
+      <div class="row", id="vehicle">
+        <%= render @vehicles %>
+      </div>
+      <div id="pagination">
+        <%= paginate @vehicles, remote: true, theme: "twitter-bootstrap-3" %>
+      </div>
     </div>
   </div>
 </section>

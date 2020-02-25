@@ -19,4 +19,8 @@ $(document).on('turbolinks:load', function () {
     $('.page.active').attr('class', 'page');
     $(this).closest('li').attr('class', 'page active');
   });
-})
+
+  $('#select_tag').on('change', function() {
+    this.form.submit();
+  });
+});
