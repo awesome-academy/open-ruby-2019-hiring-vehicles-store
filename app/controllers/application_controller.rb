@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include CommentsHelper
 
   before_action :set_locale, :search, :load_data
 

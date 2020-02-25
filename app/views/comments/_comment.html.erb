@@ -1,9 +1,12 @@
-<div id="comment">
-  <li>
-    <p><%= t ".comment_by" %> <%= comment.user.name %> <%= t ".on" %>
-      <%= comment.created_at.strftime(Settings.date_format) %></p> 
-    <h3><%= comment.content %></h3>
-    <% if comment.commentable_type == Settings.comment_type %>
+<div class="new_comment">
+  <ul class="user_comment">
+    <div class="user_avatar">
+      <%= image_tag Settings.avatar %>
+    </div><div class="comment_body">
+      <p><%= t ".comment_by" %> <strong><%= link_to comment.user_name, comment.user %></strong></p> 
+      <p><%= comment.content %></p>
+    </div>
+    <% if check_commentable(comment) && logged_in? %>
       <%= link_to t(".reply"), new_comment_path(comment_id: comment.id), remote: true %>
     <% end %>
     <% div_id = "reply-form-#{comment.id}" %>
@@ -14,5 +17,5 @@
         <%= render partial: "comments/comment", collection: comment.comments %>
       </ul>
     </div>
-  </li>
+  </ul>
 </div>

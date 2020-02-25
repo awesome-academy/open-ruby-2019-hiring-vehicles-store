@@ -11,4 +11,5 @@ module ApplicationHelper
   def check_image vehicle
     vehicle.picture? ? vehicle.picture.url : Settings.car_image
   end
+
 end

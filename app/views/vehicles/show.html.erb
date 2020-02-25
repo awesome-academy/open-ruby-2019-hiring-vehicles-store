@@ -34,5 +34,22 @@
         </div>
       </div>
     </div>
+    <div class="comment_block">
+      <div class="create_new_comment">
+        <% if logged_in? %>
+          <div class="user_avatar">
+            <%= image_tag "avatar.png" %>
+          </div><div class="input_comment">
+            <%= form_for [@vehicle, @comment], remote: true do |f| %>
+              <%= f.text_field :content, placeholder: t(".add"), id: "text_area" %><br/>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+            <% end %>
+          </div>
+        <% end %>
+        <div id="comment_block">
+          <%= render @comments %>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
