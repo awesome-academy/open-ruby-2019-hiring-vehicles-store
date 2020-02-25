@@ -1,0 +1,4 @@
+$('#vehicles').html('<%= j render(@vehicles) %>');
+$(document).on('turbolinks:load', function () {
+  $('#pagination').html('<%= j paginate(@vehicles, remote: true) %>');
+});

@@ -13,5 +13,10 @@ $(document).on('turbolinks:load', function () {
       search: I18n.t("admin.vehicles.index.input"),
       searchPlaceholder: I18n.t("admin.vehicles.index.search")
     }
-} );
+  });
+
+  $('.page').on('click', function() {
+    $('.page.active').attr('class', 'page');
+    $(this).closest('li').attr('class', 'page active');
+  });
 })

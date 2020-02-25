@@ -49,6 +49,9 @@
         <div id="comment_block">
           <%= render @comments %>
         </div>
+        <div id="pagination">
+          <%= paginate @comments, remote: true, theme: "twitter-bootstrap-3" %>
+        </div>
       </div>
     </div>
   </div>

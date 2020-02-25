@@ -1,0 +1,4 @@
+$('#comment_block').html('<%= j render(@comments) %>');
+$(document).on('turbolinks:load', function () {
+  $('#pagination').html('<%= j paginate(@comments, remote: true) %>');
+});
