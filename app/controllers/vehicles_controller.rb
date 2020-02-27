@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
   def show
     @comment = Comment.new
     @vehicle = Vehicle.find_by id: params[:id]
-    @comments = @vehicle.comments.reverse
+    @comments = @vehicle.comments.page(params[:page]).per Settings.per_page
     return if @vehicle
     flash[:danger] = t ".cant_find"
     redirect_to root_path

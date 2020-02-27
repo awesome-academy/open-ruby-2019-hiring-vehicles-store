@@ -3,19 +3,11 @@
     <div class="section-title">
       <h2><%= t ".list" %><%= @branch.name %></h2>
     </div>
-    <div class="row">
-      <% @vehicles.each do |vehicle| %>
-        <div class="col-lg-4 col-md-6">
-          <div class="categorie-item">
-            <%= image_tag check_image vehicle %>
-            <div class="ci-text">
-              <h5><%= link_to vehicle.name, vehicle %></h5>
-              <p><%= vehicle.description.truncate Settings.short_text %></p>
-              <span><%= vehicle.price %>VND/H</span>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div class="row", id="vehicles">
+      <%= render @vehicles %>
+    </div>
+    <div id="pagination">
+      <%= paginate @vehicles, remote: true, theme: "twitter-bootstrap-3" %>
     </div>
   </div>
 </section>
