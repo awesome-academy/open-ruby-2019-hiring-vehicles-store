@@ -19,3 +19,4 @@ min_time: 0
 avatar: "avatar.png"
 exchange: 10
 chart: "https://www.gstatic.com/charts/loader.js"
+quantity_value: [3, 6, 9]
