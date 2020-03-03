@@ -4,6 +4,10 @@
       <div class="section-title">
         <h2><%= t ".list" %><%= @branch.name %></h2>
       </div>
+      <%= form_tag @branch, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :q, nil, class: "form-control input-lg" %>
+        <%= submit_tag t(".search"), class: "btn btn-lg btn-primary" %>
+      <% end %>
       <%= form_tag @branch, method: :get, remote: true do %>
         <%= select_tag :per_page, options_for_select(Settings.quantity_value),
           id: "select_tag", include_blank: true %>

@@ -1,4 +1,6 @@
 class Vehicle < ApplicationRecord
+  include SearchCop
+
   VEHICLE_PARAMS =
     %i(name quantity category_id branch_id description price picture).freeze
   INDEX_PARAMS =
@@ -22,6 +24,11 @@ class Vehicle < ApplicationRecord
   delegate :name, to: :branch, prefix: :branch
 
   scope :active_vehicles, ->{where.not quantity: Settings.sold_out}
+
+  search_scope :search do
+    attributes all: %i(name description)
+    options :all, type: :fulltext, default: true
+  end
 
   private
 
