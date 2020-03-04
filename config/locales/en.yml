@@ -150,6 +150,11 @@ en:
         description: "Description"
         price: "Price"
         submit: "Submit"
+        service: "Service"
+        add: "Add Service"
+      service_fields:
+        name: "Name"
+        price: "Price"
     branchs:
       branch:
         update: "Edit"

@@ -27,5 +27,15 @@
     <%= f.file_field :picture, accept: Settings.accept_image %>
   </span>
 
+  <h3><%= t ".service" %></h3>
+  <div id="tasks">
+    <%= f.fields_for :services do |service| %>
+      <%= render "service_fields", f: service %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association t(".add"), f, :services, class: "btn btn-primary" %>
+    </div>
+  </div>
+
   <%= f.submit t(".submit"), class: "btn btn-primary btn-lg" %>
 <% end %>
