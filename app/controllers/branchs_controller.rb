@@ -6,8 +6,10 @@ class BranchsController < ApplicationController
   def show
     @branch = Branch.find_by id: params[:id]
     per_page = params[:per_page] || Settings.per_page
-    @vehicles = @branch.vehicles.active_vehicles
-      .page(params[:page]).per per_page
+    results = params[:q] ? Vehicle.search(params[:q]) :
+      @branch.vehicles.active_vehicles
+    @vehicles = results.page(params[:page]).per per_page
+
     respond_to do |format|
       format.html 
       format.js

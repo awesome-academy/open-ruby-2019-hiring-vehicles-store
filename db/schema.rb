@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_152704) do
+ActiveRecord::Schema.define(version: 2020_03_03_165304) do
 
   create_table "branches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -56,14 +56,6 @@ ActiveRecord::Schema.define(version: 2020_01_05_152704) do
     t.string "stripe_id"
   end
 
-  create_table "users_packages", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "mobile"
-    t.string "package_code", null: false
-    t.integer "status", limit: 1, default: 1, null: false, comment: "CANCEL(\"CANCEL\" , 0) , \tACTIVE(\"ACTIVE\" , 1) , \tINDEBTED(\"INDEBTED\" , 2) ,\tNEW(\"NEW\" , 3) , \tWINNER(\"WINNER\" , 5) , \tPENDING(\"PENDING\" , 6) ,\tACCUMULATED(\"ACCUMULATED\" , 7), \tRECEIVE_REWARD(\"RECEIVE_REWARD\" , -1)"
-    t.datetime "created", null: false
-    t.datetime "modified", null: false
-  end
-
   create_table "vehicles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
@@ -77,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_152704) do
     t.string "picture"
     t.index ["branch_id"], name: "index_vehicles_on_branch_id"
     t.index ["category_id"], name: "index_vehicles_on_category_id"
+    t.index ["name", "description"], name: "index_vehicles_on_name_and_description", type: :fulltext
   end
 
   add_foreign_key "hirings", "users"
