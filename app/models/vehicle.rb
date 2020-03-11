@@ -2,7 +2,8 @@ class Vehicle < ApplicationRecord
   include SearchCop
 
   VEHICLE_PARAMS =
-    %i(name quantity category_id branch_id description price picture).freeze
+    [:name, :quantity, :category_id, :branch_id, :description, :price,
+     :picture, services_attributes: [:id, :name, :price, :_destroy]].freeze
   INDEX_PARAMS =
     %i(id name quantity price description category_id branch_id)
 
@@ -10,6 +11,9 @@ class Vehicle < ApplicationRecord
   belongs_to :branch
   has_many :hirings, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :services, dependent: :destroy
+  accepts_nested_attributes_for :services, reject_if: :all_blank,
+    allow_destroy: true
 
   mount_uploader :picture, PictureUploader
 

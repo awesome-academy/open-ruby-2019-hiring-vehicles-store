@@ -21,6 +21,7 @@
 //= require lib/searchbox.js
 //= require lib/stripe.js
 //= require lib/gchart.js
+//= require cocoon
 //= require chartkick
 //= require activestorage
 //= require turbolinks
