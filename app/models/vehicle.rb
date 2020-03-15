@@ -10,7 +10,7 @@ class Vehicle < ApplicationRecord
   belongs_to :category
   belongs_to :branch
   has_many :hirings, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments
   has_many :services, dependent: :destroy
   accepts_nested_attributes_for :services, reject_if: :all_blank,
     allow_destroy: true
