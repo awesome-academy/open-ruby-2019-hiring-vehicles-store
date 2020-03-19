@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :load_commentable, only: :create
 
   def new
     @comment = Comment.find_by id: params[:comment_id]
@@ -7,27 +6,22 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @commentable.comments.build comment_params
+    if params[:comment][:parent_id].to_i > Settings.zero
+      parent = Comment.find_by id: params[:comment].delete(:parent_id)
+      @comment = parent.children.build comment_params
+    else
+      @comment = Comment.new comment_params
+    end
 
-    if @commentable.save
-      respond_to :html, :js
+    if @comment.save
+      respond_to do |format|
+        format.html{redirect_to :back}
+        format.js
+      end
     end
   end
 
   private
-
-  def load_commentable
-    if params[:vehicle_id]    
-      @commentable = Vehicle.find_by id: params[:vehicle_id]
-      @vehicle = @commentable
-    elsif params[:comment_id]
-      @commentable = Comment.find_by id: params[:comment_id]
-      @vehicle = @commentable.commentable
-    else
-      redirect_to root_url
-      flash[:danger] = t ".cant_find"
-    end
-  end
 
   def comment_params
     params.require(:comment).permit Comment::COMMENT_PARAMS

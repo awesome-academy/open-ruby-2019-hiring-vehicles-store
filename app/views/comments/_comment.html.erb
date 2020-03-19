@@ -3,18 +3,18 @@
     <div class="user_avatar">
       <%= image_tag Settings.avatar %>
     </div><div class="comment_body">
-      <p><%= t ".comment_by" %> <strong><%= link_to comment.user_name, comment.user %></strong></p> 
+      <p><%= t ".comment_by" %> <strong><%= link_to comment.user_name,
+        comment.user %></strong></p> 
       <p><%= comment.content %></p>
     </div>
-    <% if check_commentable(comment) && logged_in? %>
-      <%= link_to t(".reply"), new_comment_path(comment_id: comment.id), remote: true %>
-    <% end %>
+    <%= link_to t(".reply"), new_comment_path(comment_id: comment.id,
+      vehicle_id: comment.vehicle.id), remote: true %>
     <% div_id = "reply-form-#{comment.id}" %>
     <div id=<%= div_id %>>
     </div>
     <div id="reply">
       <ul>
-        <%= render partial: "comments/comment", collection: comment.comments %>
+        <%= render partial: "comments/comment", collection: comment.children %>
       </ul>
     </div>
   </ul>

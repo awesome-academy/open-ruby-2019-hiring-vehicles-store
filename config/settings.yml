@@ -20,3 +20,5 @@ avatar: "avatar.png"
 exchange: 10
 chart: "https://www.gstatic.com/charts/loader.js"
 quantity_value: [3, 6, 9]
+zero: 0
+depth: 5

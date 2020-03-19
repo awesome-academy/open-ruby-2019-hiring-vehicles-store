@@ -40,17 +40,16 @@
           <div class="user_avatar">
             <%= image_tag "avatar.png" %>
           </div><div class="input_comment">
-            <%= form_for [@vehicle, @comment], remote: true do |f| %>
+            <%= form_for @comment, remote: true do |f| %>
               <%= f.text_field :content, placeholder: t(".add"), id: "text_area" %><br/>
               <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.hidden_field :vehicle_id, value: @vehicle.id %>
             <% end %>
           </div>
         <% end %>
         <div id="comment_block">
-          <%= render @comments %>
-        </div>
-        <div id="pagination">
-          <%= paginate @comments, remote: true, theme: "twitter-bootstrap-3" %>
+          <%= comments_tree_for @comments.hash_tree(limit_depth: 
+            Settings.depth), @vehicle, @comment %>
         </div>
       </div>
     </div>

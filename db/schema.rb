@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_070553) do
+ActiveRecord::Schema.define(version: 2020_03_15_175207) do
 
   create_table "branches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,14 +24,23 @@ ActiveRecord::Schema.define(version: 2020_03_04_070553) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "comment_hierarchies", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true
+    t.index ["descendant_id"], name: "comment_desc_idx"
+  end
+
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "commentable_id"
-    t.string "commentable_type"
     t.bigint "user_id"
+    t.integer "parent_id"
+    t.bigint "vehicle_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["vehicle_id"], name: "index_comments_on_vehicle_id"
   end
 
   create_table "hirings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_070553) do
     t.index ["name", "description"], name: "index_vehicles_on_name_and_description", type: :fulltext
   end
 
+  add_foreign_key "comments", "vehicles"
   add_foreign_key "hirings", "users"
   add_foreign_key "hirings", "vehicles"
   add_foreign_key "services", "vehicles"
