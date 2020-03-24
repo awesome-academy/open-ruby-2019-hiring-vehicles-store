@@ -1,4 +1,5 @@
 class Vehicle < ApplicationRecord
+  require "csv"
   include SearchCop
 
   VEHICLE_PARAMS =
@@ -32,6 +33,29 @@ class Vehicle < ApplicationRecord
   search_scope :search do
     attributes all: %i(name description)
     options :all, type: :fulltext, default: true
+  end
+
+  class << self
+    def imports file
+      vehicles = []
+      CSV.foreach(file.path, headers: true) do |row|
+        vehicles << Vehicle.new(row.to_hash)
+      end
+      Vehicle.import vehicles
+    end
+
+    def as_csv
+      CSV.generate do |csv|
+        column_names << "notice"
+        csv << column_names
+        all.each do |vehicle|
+          result = vehicle.attributes.values_at(*column_names)
+          result.pop
+          result.push(:notice)
+          csv << result
+        end
+      end
+    end
   end
 
   private

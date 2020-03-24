@@ -33,6 +33,8 @@ GEM
       activemodel (= 5.2.3)
       activesupport (= 5.2.3)
       arel (>= 9.0)
+    activerecord-import (1.0.4)
+      activerecord (>= 3.2)
     activestorage (5.2.3)
       actionpack (= 5.2.3)
       activerecord (= 5.2.3)
@@ -253,6 +255,9 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    roo (2.8.3)
+      nokogiri (~> 1)
+      rubyzip (>= 1.3.0, < 3.0.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
@@ -281,6 +286,7 @@ GEM
     ruby-vips (2.0.16)
       ffi (~> 1.9)
     ruby_dep (1.5.0)
+    rubyzip (2.3.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -353,6 +359,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
   bcrypt (= 3.1.12)
   bootsnap (>= 1.1.0)
   bootstrap-datepicker-rails
@@ -384,6 +391,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-i18n
   ransack
+  roo
   rspec-rails
   rubocop (~> 0.54.0)
   sass-rails (~> 5.0)

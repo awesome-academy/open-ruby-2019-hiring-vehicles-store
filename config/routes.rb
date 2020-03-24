@@ -37,5 +37,9 @@ Rails.application.routes.draw do
       resources :hirings
       resources :users, only: %i(edit show create)
     end
+
+    namespace :import_file do
+      resources :imports, only: :create
+    end
   end
 end

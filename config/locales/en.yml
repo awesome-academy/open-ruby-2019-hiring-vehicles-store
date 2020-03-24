@@ -250,3 +250,5 @@ en:
     success:
       suc: "You successfully linked a credit card to your account"
       pay: "Payment"
+  stuffs:
+    header: "Header"
