@@ -5,6 +5,11 @@ class Admin::VehiclesController < ApplicationController
 
   def index
     @vehicles = Vehicle.select Vehicle::INDEX_PARAMS
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @vehicles.as_csv }
+    end
   end
 
   def new

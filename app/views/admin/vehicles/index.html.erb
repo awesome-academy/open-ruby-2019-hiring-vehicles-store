@@ -1,6 +1,11 @@
-
 <td><%= link_to t(".new"), new_admin_vehicle_path, class: "btn btn-primary", remote: true %></td>
+<%= link_to t(".export"), admin_vehicles_path(format: :csv), class: "btn btn-primary" %>
 <td><%= link_to t(".statistic"), statistic_index_path, class: "btn btn-primary", remote: true %></td>
+<%= form_tag import_file_imports_path, multipart: true do %>
+  <%= file_field_tag :file, accept: "text/csv" %>
+  <%= submit_tag t(".import"), class: "btn btn-primary" %>
+<% end %>
+
 <table id="vehicles-table" class="table table-bordered">
   <thead>
     <tr>
