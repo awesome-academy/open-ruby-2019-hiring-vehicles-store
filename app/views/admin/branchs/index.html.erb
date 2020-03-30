@@ -1,15 +1,1 @@
-<section>
-  <%= render "shared/branch_form" %>
-</section>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th><%= t ".name" %></th>
-      <th><%= t ".edit" %></th>
-      <th><%= t ".delete" %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render partial: "admin/branchs/branch", collection: @branchs %>
-  </tbody>
-</table>
+<%= react_component("Table", {branchs: @branchs}) %>

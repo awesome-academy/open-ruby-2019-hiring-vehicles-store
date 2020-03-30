@@ -161,6 +161,12 @@ en:
         delete: "Delete"
       create:
         success: "Success"
+      index:
+        edit: "edit"
+        name: "Name"
+        delete: "Delete"
+        update: "Update"
+        remove: "Remove"
     hirings:
       index:
         id: "id"
