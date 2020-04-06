@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CommentsHelper
 
+  protect_from_forgery with: :null_session
+
   before_action :set_locale, :search, :load_data
 
   def logged_in_user

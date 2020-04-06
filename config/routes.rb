@@ -36,10 +36,17 @@ Rails.application.routes.draw do
       resources :branchs, except: :show
       resources :hirings
       resources :users, only: %i(edit show create)
+      resources :services, only: :index
     end
 
     namespace :import_file do
       resources :imports, only: :create
+    end
+
+    namespace :api do
+      namespace :v1 do
+        resources :services, only: %i(index create)
+      end
     end
   end
 end

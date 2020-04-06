@@ -402,6 +402,7 @@ DEPENDENCIES
   rails-i18n
   ransack
   react-rails
+  responders
   roo
   rspec-rails
   rubocop (~> 0.54.0)

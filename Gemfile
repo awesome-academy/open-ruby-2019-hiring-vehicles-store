@@ -30,6 +30,7 @@ gem "rails", "~> 5.2.3"
 gem "rails-i18n"
 gem "ransack"
 gem "react-rails"
+gem "responders"
 gem "roo"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"

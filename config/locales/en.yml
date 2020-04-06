@@ -119,6 +119,12 @@ en:
   admin:
     index:
       wel: "Statistic of Store"
+    services:
+      index:
+        new: "new"
+        name: "name"
+        price: "price"
+        vehicle: "Vehicle"
     vehicles:
       create:
         success: "Success"
