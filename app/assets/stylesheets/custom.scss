@@ -334,7 +334,6 @@ li.search-item {
 *:after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   transition: all 0.2s ease;
 }
 
@@ -521,4 +520,11 @@ body {
 
 #lili {
   margin-left: -27px;
+}
+
+.services {
+  margin-top: 250px;
+  h1 {
+    color: $white;
+  }
 }
